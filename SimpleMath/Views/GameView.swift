@@ -32,31 +32,9 @@ struct GameView: View {
                 .textFieldStyle(.roundedBorder)
                 .frame(width: 200)
                 .focused($inputFocused)
-                .toolbar {
-                    ToolbarItemGroup(placement: .keyboard) {
-                        Spacer()
-                        Button("Submit") {
-                            viewModel.submitAnswer()
-                        }
-                        .fontWeight(.semibold)
-                    }
+                .onChange(of: viewModel.userInput) {
+                    viewModel.checkAnswer()
                 }
-
-            if viewModel.showWrongFeedback {
-                Text("Wrong — try again!")
-                    .font(.headline)
-                    .foregroundStyle(.red)
-                    .transition(.opacity)
-            }
-
-            Button(action: { viewModel.submitAnswer() }) {
-                Text("Submit")
-                    .font(.title3.bold())
-                    .frame(maxWidth: .infinity)
-            }
-            .buttonStyle(.borderedProminent)
-            .controlSize(.large)
-            .padding(.horizontal, 40)
 
             Spacer()
         }
@@ -64,7 +42,6 @@ struct GameView: View {
         .onAppear {
             inputFocused = true
         }
-        .animation(.easeInOut(duration: 0.15), value: viewModel.showWrongFeedback)
     }
 
 }

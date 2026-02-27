@@ -28,10 +28,14 @@ struct SettingsView: View {
                 Section("First Number Range") {
                     HStack {
                         Text("Min")
+                            .frame(width: 40, alignment: .leading)
                         TextField("Min", value: $viewModel.settings.operand1Min, format: .number)
                             .keyboardType(.numberPad)
                             .textFieldStyle(.roundedBorder)
+                    }
+                    HStack {
                         Text("Max")
+                            .frame(width: 40, alignment: .leading)
                         TextField("Max", value: $viewModel.settings.operand1Max, format: .number)
                             .keyboardType(.numberPad)
                             .textFieldStyle(.roundedBorder)
@@ -41,10 +45,14 @@ struct SettingsView: View {
                 Section("Second Number Range") {
                     HStack {
                         Text("Min")
+                            .frame(width: 40, alignment: .leading)
                         TextField("Min", value: $viewModel.settings.operand2Min, format: .number)
                             .keyboardType(.numberPad)
                             .textFieldStyle(.roundedBorder)
+                    }
+                    HStack {
                         Text("Max")
+                            .frame(width: 40, alignment: .leading)
                         TextField("Max", value: $viewModel.settings.operand2Max, format: .number)
                             .keyboardType(.numberPad)
                             .textFieldStyle(.roundedBorder)
@@ -57,7 +65,6 @@ struct SettingsView: View {
                             Text(Formatters.durationLabel(d)).tag(d)
                         }
                     }
-                    .pickerStyle(.segmented)
                 }
 
                 Section {
@@ -71,6 +78,7 @@ struct SettingsView: View {
                 }
             }
             .navigationTitle("SimpleMath")
+            .scrollDismissesKeyboard(.interactively)
         }
     }
 

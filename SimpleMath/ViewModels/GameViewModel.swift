@@ -23,7 +23,6 @@ class GameViewModel: ObservableObject {
     @Published var score: Int = 0
     @Published var timeRemaining: Int = 0
     @Published var userInput: String = ""
-    @Published var showWrongFeedback: Bool = false
 
     private var timerCancellable: AnyCancellable?
 
@@ -33,27 +32,19 @@ class GameViewModel: ObservableObject {
         score = 0
         timeRemaining = settings.duration
         userInput = ""
-        showWrongFeedback = false
         currentProblem = ProblemGenerator.generate(from: settings)
         screen = .game
         startTimer()
     }
 
-    func submitAnswer() {
+    func checkAnswer() {
+        guard screen == .game else { return }
         let trimmed = userInput.trimmingCharacters(in: .whitespaces)
-        guard !trimmed.isEmpty, let value = Int(trimmed) else {
-            if !trimmed.isEmpty { showWrongFeedback = true }
-            userInput = ""
-            return
-        }
+        guard !trimmed.isEmpty, let value = Int(trimmed) else { return }
 
         if value == currentProblem.answer {
             score += 1
-            showWrongFeedback = false
-            userInput = ""
             currentProblem = ProblemGenerator.generate(from: settings)
-        } else {
-            showWrongFeedback = true
             userInput = ""
         }
     }
