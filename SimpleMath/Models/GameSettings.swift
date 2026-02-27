@@ -1,11 +1,11 @@
 import Foundation
 
 struct GameSettings {
-    var operation: Operation = .addition
+    var selectedOperations: Set<Operation> = [.addition]
     var operand1Min: Int = 1
     var operand1Max: Int = 100
     var operand2Min: Int = 1
-    var operand2Max: Int = 100
+    var operand2Max: Int = 15
     var duration: Int = 120
 
     var operand1Range: ClosedRange<Int> {

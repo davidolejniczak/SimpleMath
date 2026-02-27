@@ -3,7 +3,8 @@ import Foundation
 struct ProblemGenerator {
 
     static func generate(from settings: GameSettings) -> Problem {
-        switch settings.operation {
+        let operation = settings.selectedOperations.randomElement() ?? .addition
+        switch operation {
         case .addition:
             return generateAddition(settings)
         case .subtraction:

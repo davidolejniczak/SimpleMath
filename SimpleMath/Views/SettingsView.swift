@@ -8,17 +8,21 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Operation") {
-                    Picker("Operation", selection: $viewModel.settings.operation) {
-                        ForEach(Operation.allCases) { op in
-                            Text(op.symbol).tag(op)
+                Section("Operations") {
+                    ForEach(Operation.allCases) { op in
+                        Toggle(isOn: Binding(
+                            get: { viewModel.settings.selectedOperations.contains(op) },
+                            set: { isOn in
+                                if isOn {
+                                    viewModel.settings.selectedOperations.insert(op)
+                                } else if viewModel.settings.selectedOperations.count > 1 {
+                                    viewModel.settings.selectedOperations.remove(op)
+                                }
+                            }
+                        )) {
+                            Label(op.displayName, systemImage: "number")
                         }
                     }
-                    .pickerStyle(.segmented)
-
-                    Text(viewModel.settings.operation.displayName)
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
                 }
 
                 Section("First Number Range") {
