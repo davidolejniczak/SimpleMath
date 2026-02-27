@@ -30,17 +30,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		07CA60092F511D1A00908877 /* SimpleMath */ = {
+		07CA60312F511D1C00908877 /* SimpleMath */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = SimpleMath;
 			sourceTree = "<group>";
 		};
-		07CA60172F511D1B00908877 /* SimpleMathTests */ = {
+		07CA60322F511D1C00908877 /* SimpleMathTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = SimpleMathTests;
 			sourceTree = "<group>";
 		};
-		07CA60212F511D1B00908877 /* SimpleMathUITests */ = {
+		07CA60332F511D1C00908877 /* SimpleMathUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = SimpleMathUITests;
 			sourceTree = "<group>";
@@ -75,9 +75,9 @@
 		07CA5FFE2F511D1A00908877 = {
 			isa = PBXGroup;
 			children = (
-				07CA60092F511D1A00908877 /* SimpleMath */,
-				07CA60172F511D1B00908877 /* SimpleMathTests */,
-				07CA60212F511D1B00908877 /* SimpleMathUITests */,
+				07CA60312F511D1C00908877 /* SimpleMath */,
+				07CA60322F511D1C00908877 /* SimpleMathTests */,
+				07CA60332F511D1C00908877 /* SimpleMathUITests */,
 				07CA60082F511D1A00908877 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -108,7 +108,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				07CA60092F511D1A00908877 /* SimpleMath */,
+				07CA60312F511D1C00908877 /* SimpleMath */,
 			);
 			name = SimpleMath;
 			packageProductDependencies = (
@@ -131,7 +131,7 @@
 				07CA60162F511D1B00908877 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				07CA60172F511D1B00908877 /* SimpleMathTests */,
+				07CA60322F511D1C00908877 /* SimpleMathTests */,
 			);
 			name = SimpleMathTests;
 			packageProductDependencies = (
@@ -154,7 +154,7 @@
 				07CA60202F511D1B00908877 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				07CA60212F511D1B00908877 /* SimpleMathUITests */,
+				07CA60332F511D1C00908877 /* SimpleMathUITests */,
 			);
 			name = SimpleMathUITests;
 			packageProductDependencies = (

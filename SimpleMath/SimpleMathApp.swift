@@ -1,17 +1,22 @@
-//
-//  SimpleMathApp.swift
-//  SimpleMath
-//
-//  Created by David Olejniczak on 2026-02-26.
-//
-
 import SwiftUI
 
 @main
 struct SimpleMathApp: App {
+    @StateObject private var viewModel = GameViewModel()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Group {
+                switch viewModel.screen {
+                case .settings:
+                    SettingsView(viewModel: viewModel)
+                case .game:
+                    GameView(viewModel: viewModel)
+                case .results:
+                    ResultsView(viewModel: viewModel)
+                }
+            }
+            .animation(.easeInOut(duration: 0.25), value: viewModel.screen)
         }
     }
 }
